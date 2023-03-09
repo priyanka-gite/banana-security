@@ -4,16 +4,16 @@ import {useHistory} from "react-router-dom";
 export const AuthContext = createContext({});
 
 function AuthContextProvider ({children}) {
-    const [isAuth,setIsAuth] = useState(false);
+    const [isAuth,setIsAuth] = useState({isAuth: false, user : ""});
     let history = useHistory();
 
     function login() {
-        setIsAuth(true);
+        setIsAuth({isAuth : true , user : ""});
         console.log("loginButton called auth is true")
         history.push("/profile")
     }
     function logout (){
-        setIsAuth(false)
+        setIsAuth({isAuth : false , user : ""})
         history.push("/")
         console.log("logout button called auth is false")
     }
